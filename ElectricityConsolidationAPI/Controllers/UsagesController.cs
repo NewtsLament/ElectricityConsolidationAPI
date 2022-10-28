@@ -56,14 +56,14 @@ namespace ElectricityConsolidationAPI.Controllers
             {
                 DateTime startDate = period.TimeInterval.Start;
                 DateTime endDate = period.TimeInterval.End;
-                for (int i = 0; i < period.Point.Count; i++)
+                foreach (var point in period.Point)
                 {
-                    var point = period.Point[i];
+                    int position = int.Parse(point.Position);
                     Usage temp = new Usage()
                     {
                         Consumption = Decimal.Parse(point.OutQuantityQuantity,provider),
-                        DateAndTimeStart = startDate.AddHours(i),
-                        DateAndTimeEnd = endDate.AddHours(i + 1),
+                        DateAndTimeStart = startDate.AddHours(position-1),
+                        DateAndTimeEnd = endDate.AddHours(position),
                     };
                     usages.Add(temp);
                 }
