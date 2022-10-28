@@ -38,7 +38,7 @@ namespace ElectricityConsolidationAPI.Controllers
             {
                 meters.Add(new Meter(long.Parse(item.MeteringPointId)));
             }
-            return Ok(meters);
+            return Ok(new { meters });
         }
     }
 }

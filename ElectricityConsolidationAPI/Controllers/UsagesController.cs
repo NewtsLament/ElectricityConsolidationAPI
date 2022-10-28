@@ -64,12 +64,12 @@ namespace ElectricityConsolidationAPI.Controllers
                         Consumption = Decimal.Parse(point.OutQuantityQuantity,provider),
                         DateAndTimeStart = startDate.AddHours(i),
                         DateAndTimeEnd = endDate.AddHours(i + 1),
-                        Meter = new Meter(long.Parse(deserializedResponse.Result[0].Id))
                     };
                     usages.Add(temp);
                 }
             }
-            return Ok(usages);
+            Meter meterReturn = new Meter(long.Parse(deserializedResponse.Result[0].Id),usages);
+            return Ok(meterReturn);
         }
     }
 }

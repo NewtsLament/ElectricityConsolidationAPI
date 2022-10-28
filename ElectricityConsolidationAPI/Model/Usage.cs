@@ -10,7 +10,5 @@ namespace ElectricityConsolidationAPI.Model
         public DateTime DateAndTimeEnd { get; set; }
         [JsonPropertyName("consumption")]
         public Decimal Consumption { get; set; }
-        [JsonPropertyName("meter")]
-        public Meter Meter { get; set; }
     }
 }
